@@ -1,0 +1,33 @@
+.header{
+    position: fixed;
+    width: 100%;
+    padding: 5px;
+    z-index: 5;
+    background: var(--background-primary);
+}
+
+.header nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header nav h1 {
+    font-size: 1.3em;
+    font-family: 'Acme', sans-serif;
+}
+
+.nav-items a{
+    text-decoration: none;
+    margin: 0 10px;
+    color: var(--background-secondary);
+    transition: .1s ease;
+}
+
+.nav-items a:hover {
+    font-size: 1.1em;
+}
+
+.menu-icon {
+    margin: 0 20px;
+}
