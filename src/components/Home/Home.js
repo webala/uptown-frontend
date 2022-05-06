@@ -4,13 +4,17 @@ import './home.css'
 import axios from 'axios'
 import {BsFillCartPlusFill} from 'react-icons/bs'
 import {AiOutlineArrowDown} from 'react-icons/ai'
-import updataCart from '../updataCart'
+import updateCart from '../updataCart'
+
+
 
 
 function Home() {
 
 
   const [products, setProducts] = useState([])
+  
+
 
   const getProducts = () => {
     const url = '/all_products'
@@ -47,7 +51,7 @@ function Home() {
                 <h1 className='product-name'>{product.name}</h1>
                 <p className={actualPriceDiscountClass}>{product.actual_price}</p>
                 {product.actual_price !== product.discount_price && <p className='product-discount-price'>{product.discount_price}</p>}
-                <button className='btn btn-primary update-btn' data-product={productId} data-action='add'><BsFillCartPlusFill /></button>
+                <button onClick={() => updateCart(product.id, 'add')} className='btn btn-primary'><BsFillCartPlusFill /></button>
               </div>
             </div>
             

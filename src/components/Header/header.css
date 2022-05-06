@@ -24,6 +24,13 @@
     transition: .1s ease;
 }
 
+.nav-items span {
+    font-size: 0.7em;
+    position: relative;
+    right: 10px;
+    bottom: 5px;
+}
+
 .nav-items a:hover {
     font-size: 1.1em;
 }
