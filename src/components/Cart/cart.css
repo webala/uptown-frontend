@@ -1,6 +1,11 @@
 .cart {
     color: var(--text-primary);
     height: fit-content;
+    width: 300px;
+}
+
+.cart-items {
+    width: 100%;
 }
 
 .cart-items .product-img {
@@ -26,8 +31,12 @@ th, td {
     justify-content: space-between;
     padding: 10px;
 }
+.shipping-information {
+    background: ver(--background-primary);
+    height: fit-content;
+}
 
-.shipping-information form div{
+.shipping-information form div {
     margin: 20px 5px; 
 }
 
@@ -35,4 +44,10 @@ th, td {
     height: 100vh;
     background: var(--backgroung-primary);
     padding: 20px;
+}
+
+.shipping-information h1,.actions h2 {
+    font-size: 1.2em;
+    font-weight: 600;
+    color: var(--background-secondary)
 }

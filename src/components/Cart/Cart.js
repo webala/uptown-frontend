@@ -8,6 +8,7 @@ function Cart() {
 
     const [cartItems, setCartItems] = useState([])
     const [cart, setCart] = useState({})
+    const [processOrder, setProccessOrder] = useState(false)
     const codeRef = useRef()
     const nameRef = useRef()
     const emailRef = useRef()
@@ -34,7 +35,7 @@ function Cart() {
         amount: cart.get_cart_total
       }
 
-      const url = '/process_order'
+      const url = '/api/confirmation_code'
 
       axios.post(url, data)
       .then(res => console.log(res.data))
@@ -43,13 +44,13 @@ function Cart() {
 
     useEffect(() => {
         getCartItems()
-    })
+    }, [])
   return (
     <div className='cart'>
         <section className='cart-items'>
           <div className='actions'>
             <h2>Cart Total: {cart.get_cart_total}</h2>
-            <button className='btn btn-primary'>Checkout</button>
+            <button className='btn btn-primary btn-sm'>Checkout</button>
           </div>
           <table className="table">
             <thead>
@@ -82,46 +83,46 @@ function Cart() {
         <section className='checkout'>
               <div className='shipping-information'>
                 <h1>Shipping Information</h1>
-                <form onSubmit={() => handleSubmit()}>
+                <form>
                   <div>
-                    <input type='text' ref={nameRef} className='form-control' placeholder="Name" required/>
+                    <input type='text' ref={nameRef} className='form-control w-50' placeholder="Name" required/>
                   </div>
 
                   <div>
-                    <input type='email' ref={emailRef}className='form-control' placeholder="Email" required/>
+                    <input type='email' ref={emailRef}className='form-control w-50' placeholder="Email" required/>
                   </div>
 
                   <div>
-                    <input type='number' className='form-control' placeholder="Phone Number" required/>
+                    <input type='number' className='form-control w-50' placeholder="Phone Number" required/>
                   </div>
 
                   <div>
-                    <input type='text' className='form-control' placeholder="City" />
+                    <input type='text' className='form-control w-50' placeholder="City" />
                   </div>
 
                   <div>
-                    <input type='text' className='form-control' placeholder="Estate"/>
+                    <input type='text' className='form-control w-50' placeholder="Estate"/>
                   </div>
 
                   <div>
-                    <input type='text' className='form-control' placeholder="Building"/>
+                    <input type='text' className='form-control w-50' placeholder="Building"/>
                   </div>
 
                   <div>
-                    <input type='text' className='form-control' placeholder="House"/>
+                    <input type='text' className='form-control w-50' placeholder="House"/>
                   </div>
 
                   <div>
-                    <input type='text' className='form-control' placeholder="House Number"/>
+                    <input type='text' className='form-control w-50' placeholder="House Number"/>
                   </div>
 
                   <div>
-                    <button type='submit' className='btn btn-success'>Process Order</button>
+                    <button onClick={() => setProccessOrder(true)} type='submit' className='btn btn-success'>Process Order</button>
                   </div>
                 </form>
               </div>
 
-              <div className='process-order'>
+              {processOrder && <div className='process-order'>
                 <p className='text-sm text-info'><AiOutlineInfoCircle /> Payment via M-Pesa only</p>
                 <h2>Payment Process</h2>
                 <ol>
@@ -134,9 +135,9 @@ function Cart() {
                   <input type='text' ref={codeRef} className='form-control' placeholder="CONFIRMATION CODE"/>
                 </div>
                 <div>
-                  <button className='btn btn-success mt-4'>Submit Code</button>
+                  <button className='btn btn-success mt-4' onClick={handleSubmit}>Submit Code</button>
                 </div>
-              </div>
+              </div>}
         </section>
     </div>
   )
