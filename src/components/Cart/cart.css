@@ -1,0 +1,38 @@
+.cart {
+    color: var(--text-primary);
+    height: fit-content;
+}
+
+.cart-items .product-img {
+    width: 50px;
+}
+
+th, td {
+    color: var(--text-primary);
+}
+
+.quantity {
+    display: flex;
+}
+
+.quantity div {
+    display: flex;
+    flex-direction: column;
+    margin: 0 10px;
+}
+
+.cart-items .actions {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+.shipping-information form div{
+    margin: 20px 5px; 
+}
+
+.process-order {
+    height: 100vh;
+    background: var(--backgroung-primary);
+    padding: 20px;
+}
