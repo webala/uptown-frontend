@@ -1,19 +1,21 @@
 .cart {
     color: var(--text-primary);
-    height: fit-content;
-    width: 300px;
 }
 
-.cart-items {
-    width: 100%;
+.checkout {
+    height: fit-content;
+    background: var(--background-primary);
 }
 
 .cart-items .product-img {
     width: 50px;
 }
 
+
+
 th, td {
     color: var(--text-primary);
+    font-size: 0.8em;
 }
 
 .quantity {

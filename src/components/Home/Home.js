@@ -36,7 +36,7 @@ function Home() {
         <section className='landing'>
             <img src={banner} className='banner' alt='banner' />
             <h2>Lowest prices in Nairobi</h2>  
-            <a href='#products' className='btn btn-primary border-primary rounded view-items'>View items <AiOutlineArrowDown className='view-items-icon'/></a> 
+            <p>Check out our catalogue below</p>
         </section>
 
         <section className='products border-top border-warning' id='products'>
@@ -61,7 +61,8 @@ function Home() {
         </section>
 
         <section className='contact-us border-warning border-top' id='contact-us'>
-            <p>Need any help? Reach us on whatsapp at 0790016054</p>
+          <h2 className='mb-4'>Contact Us</h2>
+          <p>Need any help? Reach us on whatsapp at 0790016054</p>
         </section>
     </div>
   )

@@ -3,6 +3,7 @@ import React,{useEffect,useState,useRef} from 'react'
 import './cart.css'
 import {MdAdd} from 'react-icons/md'
 import {AiOutlineMinus, AiOutlineInfoCircle} from 'react-icons/ai'
+import updateCart from '../updataCart'
 
 function Cart() {
 
@@ -44,7 +45,7 @@ function Cart() {
 
     useEffect(() => {
         getCartItems()
-    }, [])
+    })
   return (
     <div className='cart'>
         <section className='cart-items'>
@@ -55,7 +56,7 @@ function Cart() {
           <table className="table">
             <thead>
               <tr>
-                <th scope="col">#</th>
+                
                 <th scope="col"></th>
                 <th scope="col">Item</th>
                 <th scope="col">Price</th>
@@ -67,11 +68,11 @@ function Cart() {
               {cartItems.map((item) => {
                   return (
                     <tr>
-                      <th scope="row">1</th>
+
                       <td><img className='product-img' src={item.product.imageURL} alt='img' /></td>
                       <td>{item.product.name}</td>
                       <td>{item.product.price}</td>
-                      <td className='quantity'>{item.quantity}<div><MdAdd /> <AiOutlineMinus /></div></td>
+                      <td className='quantity'>{item.quantity}<div><MdAdd onClick={() => updateCart(item.product.id, 'add')}/> <AiOutlineMinus onClick={() => updateCart(item.product.id, 'remove')}/></div></td>
                       <td>{item.get_total}</td>
                     </tr>
                   )
@@ -127,7 +128,7 @@ function Cart() {
                 <h2>Payment Process</h2>
                 <ol>
                   <li>Go to M-Pesa</li>
-                  <li>Paybill: 123456</li>
+                  <li>Paybill: 5148969</li>
                   <li>Amount: {cart.get_cart_total}</li>
                 </ol>
 
